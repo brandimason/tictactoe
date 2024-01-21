@@ -13,6 +13,11 @@ export default function Board() {
     const [squares, setSquares] = useState(Array(9).fill(null));
 
     function handleClick(i) {
+        if (squares[i]) {
+            console.log("hello")
+            alert("This space is taken! Please pick a blank space for your next move.")
+            return;
+        }
         const nextSquares = squares.slice();
         if (xIsNext) {
             nextSquares[i] = "X";
